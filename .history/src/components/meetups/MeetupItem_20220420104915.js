@@ -5,7 +5,7 @@ import classes from "./MeetupItem.module.css";
 
 function MeetupItem(props) {
   const favoritesCtx = useContext(FavoritesContext);
-  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
+  const itemIsFavorite = favoritesCtx.itemIsFavorite();
 
   function toggleFavoriteStatusHandler() {
     if (itemIsFavorite) {

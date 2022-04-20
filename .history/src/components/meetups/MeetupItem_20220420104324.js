@@ -5,21 +5,8 @@ import classes from "./MeetupItem.module.css";
 
 function MeetupItem(props) {
   const favoritesCtx = useContext(FavoritesContext);
-  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
-
-  function toggleFavoriteStatusHandler() {
-    if (itemIsFavorite) {
-      favoritesCtx.removeFavorite(props.id);
-    } else {
-      favoritesCtx.addFavorite({
-        id: props.id,
-        title: props.title,
-        description: props.description,
-        image: props.image,
-        address: props.address,
-      });
-    }
-  }
+  const itemIsFavorite = favoritesCtx.itemIsFavorite();
+  function toggleFavoriteStatusHandler() {}
   return (
     <Card>
       <li className={classes.item}>
@@ -32,9 +19,7 @@ function MeetupItem(props) {
           <p>{props.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={toggleFavoriteStatusHandler}>
-            {itemIsFavorite ? "remove from fav" : "add to fav"}
-          </button>
+          <button onClick={toggleFavoriteStatusHandler}>To Favorites</button>
         </div>
       </li>
     </Card>
